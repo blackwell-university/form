@@ -147,17 +147,17 @@
     </div>
 
     <script>
-        // Función para filtrar los formularios
+        // Función para filtrar los formularios según el título
         function filterForms() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const forms = document.querySelectorAll('.form-card');
+            const searchInput = document.getElementById('searchInput').value.toLowerCase(); // Texto de búsqueda en minúsculas
+            const forms = document.querySelectorAll('.form-card'); // Todos los formularios
 
             forms.forEach(form => {
-                const formName = form.getAttribute('data-name').toLowerCase();
-                if (formName.includes(searchInput)) {
-                    form.style.display = 'block';
+                const formTitle = form.querySelector('h3').textContent.toLowerCase(); // Título del formulario en minúsculas
+                if (formTitle.includes(searchInput)) {
+                    form.style.display = 'block'; // Mostrar si coincide
                 } else {
-                    form.style.display = 'none';
+                    form.style.display = 'none'; // Ocultar si no coincide
                 }
             });
         }
