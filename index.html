@@ -7,6 +7,8 @@
     <link rel="icon" type="image/png" href="https://cdn.bitrix24.es/b15495391/landing/e79/e79fb239ff37e96e3340ef1ed8782f6c/Logotipo-Blackwell_1x.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <style>
         body {
             font-family: 'Source Serif Pro', serif;
@@ -39,7 +41,7 @@
         .search-container {
             margin-bottom: 20px;
             width: 100%;
-            max-width: 800px;
+            max-width: 1200px; /* Más ancho */
         }
 
         .search-container input {
@@ -55,7 +57,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 100%;
-            max-width: 800px;
+            max-width: 1200px; /* Más ancho */
             padding: 20px;
         }
 
@@ -107,7 +109,7 @@
         /* Estilos para el frame */
         #formFrameContainer {
             width: 100%;
-            max-width: 800px;
+            max-width: 1200px; /* Más ancho */
             margin-top: 20px;
             background-color: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
             border-radius: 10px;
@@ -118,7 +120,7 @@
 
         #formFrame {
             width: 100%;
-            height: 500px;
+            height: 600px; /* Alto automático */
             border: none;
             border-radius: 8px;
         }
@@ -188,6 +190,8 @@
         <iframe id="formFrame" src="" title="Formulario"></iframe>
     </div>
 
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         // Función para filtrar los formularios según el título
         function filterForms() {
@@ -209,6 +213,16 @@
             const frameContainer = document.getElementById('formFrameContainer');
             const frame = document.getElementById('formFrame');
 
+            // Mostrar SweetAlert de "Cargando..."
+            Swal.fire({
+                title: 'Cargando...',
+                text: 'Por favor, espere mientras se carga el formulario.',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
             // Asignar la URL al frame
             frame.src = url;
 
@@ -217,6 +231,11 @@
 
             // Desplazar la pantalla hacia el frame
             frameContainer.scrollIntoView({ behavior: 'smooth' });
+
+            // Ocultar SweetAlert cuando el frame haya cargado
+            frame.onload = () => {
+                Swal.close();
+            };
         }
     </script>
 </body>
