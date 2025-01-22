@@ -23,6 +23,19 @@
             background-attachment: fixed;
         }
 
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente igual que el contenedor de formularios */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-container img {
+            max-width: 150px;
+        }
+
         .search-container {
             margin-bottom: 20px;
             width: 100%;
@@ -38,76 +51,66 @@
         }
 
         #formsContainer {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 o 4 columnas según el ancho */
-            gap: 20px; /* Espacio entre tarjetas */
-            width: 100%;
-            max-width: 1200px; /* Ancho máximo del contenedor */
-            padding: 0 20px;
-        }
-
-        .form-card {
             background-color: rgba(255, 255, 255, 0.95); /* Fondo semi-transparente */
-            padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
         }
 
-        .form-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        .form-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.3s;
         }
 
-        .form-card img {
-            max-width: 100px;
-            margin-bottom: 1rem;
+        .form-item:hover {
+            background-color: #f9f9f9;
         }
 
-        .form-card h3 {
-            font-size: 1.2rem;
+        .form-item h3 {
+            font-size: 1rem;
             font-weight: bold;
             color: #2c3e50;
-            margin-bottom: 1rem;
+            margin: 0;
         }
 
-        .form-card p {
-            font-size: 0.9rem;
+        .form-item p {
+            font-size: 0.8rem;
             color: #555;
-            margin-bottom: 1.5rem;
+            margin: 0;
         }
 
-        .btn-open-form {
+        .btn-ir {
             background-color: #007bff;
             color: white;
-            padding: 0.8rem 1.5rem;
+            padding: 0.5rem 1rem;
             border: none;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: background-color 0.3s;
-            width: 100%;
         }
 
-        .btn-open-form:hover {
+        .btn-ir:hover {
             background-color: #0056b3;
         }
 
-        @media (max-width: 768px) {
-            #formsContainer {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 columnas en tablets */
-            }
-        }
-
-        @media (max-width: 576px) {
-            #formsContainer {
-                grid-template-columns: 1fr; /* 1 columna en móviles */
-            }
+        .form-item:last-child {
+            border-bottom: none;
         }
     </style>
 </head>
 <body>
+    <!-- Logo de Blackwell University -->
+    <div class="logo-container">
+        <img src="https://campus.blackwell.university/pluginfile.php/1/theme_alpha/customlogindmlogo/1731598420/logo-campus-virtual.png" alt="Logo de Blackwell University">
+    </div>
+
     <!-- Barra de búsqueda -->
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Buscar formulario..." oninput="filterForms()">
@@ -115,54 +118,49 @@
 
     <!-- Contenedor de formularios -->
     <div id="formsContainer">
-        <!-- Formulario 1: Student Admissions Acceptance Letter -->
-        <div class="form-card" data-name="Student Admissions Acceptance Letter">
-            <img src="https://campus.blackwell.university/pluginfile.php/1/theme_alpha/customlogindmlogo/1731598420/logo-campus-virtual.png" alt="Logo de Blackwell University">
-            <h3>Formulario 1: Student Admissions Acceptance Letter</h3>
-            <p>Haga clic en el botón para abrir este formulario.</p>
-            <button onclick="window.open('https://signnow.com/s/kWAiDUqA', '_blank')" class="btn-open-form">
-                Abrir Formulario
-            </button>
+        <!-- Formulario 1: Admission Application Form BGU with Grant -->
+        <div class="form-item" data-name="Admission Application Form BGU with Grant">
+            <div>
+                <h3>Formulario 1: Admission Application Form BGU with Grant</h3>
+                <p>Haga clic en "Ir" para abrir este formulario.</p>
+            </div>
+            <button class="btn-ir" onclick="window.open('https://signnow.com/s/HTDNod6Y', '_blank')">Ir</button>
         </div>
 
-        <!-- Formulario 2: Grant Scholarship Letter -->
-        <div class="form-card" data-name="Grant Scholarship Letter">
-            <img src="https://campus.blackwell.university/pluginfile.php/1/theme_alpha/customlogindmlogo/1731598420/logo-campus-virtual.png" alt="Logo de Blackwell University">
-            <h3>Formulario 2: Grant Scholarship Letter</h3>
-            <p>Haga clic en el botón para abrir este formulario.</p>
-            <button onclick="window.open('https://signnow.com/s/vW101cjQ', '_blank')" class="btn-open-form">
-                Abrir Formulario
-            </button>
+        <!-- Formulario 2: Student Admissions Acceptance Letter -->
+        <div class="form-item" data-name="Student Admissions Acceptance Letter">
+            <div>
+                <h3>Formulario 2: Student Admissions Acceptance Letter</h3>
+                <p>Haga clic en "Ir" para abrir este formulario.</p>
+            </div>
+            <button class="btn-ir" onclick="window.open('https://signnow.com/s/UqWBFgxD', '_blank')">Ir</button>
         </div>
 
-        <!-- Formulario 3: Language Proficiency Acceptance Letter -->
-        <div class="form-card" data-name="Language Proficiency Acceptance Letter">
-            <img src="https://campus.blackwell.university/pluginfile.php/1/theme_alpha/customlogindmlogo/1731598420/logo-campus-virtual.png" alt="Logo de Blackwell University">
-            <h3>Formulario 3: Language Proficiency Acceptance Letter</h3>
-            <p>Haga clic en el botón para abrir este formulario.</p>
-            <button onclick="window.open('https://signnow.com/s/AoLCXNeA', '_blank')" class="btn-open-form">
-                Abrir Formulario
-            </button>
+        <!-- Formulario 3: Grant Scholarship Letter -->
+        <div class="form-item" data-name="Grant Scholarship Letter">
+            <div>
+                <h3>Formulario 3: Grant Scholarship Letter</h3>
+                <p>Haga clic en "Ir" para abrir este formulario.</p>
+            </div>
+            <button class="btn-ir" onclick="window.open('https://signnow.com/s/xh5EK2qm', '_blank')">Ir</button>
         </div>
 
-        <!-- Formulario 4: Enrollment Agreement -->
-        <div class="form-card" data-name="Enrollment Agreement">
-            <img src="https://campus.blackwell.university/pluginfile.php/1/theme_alpha/customlogindmlogo/1731598420/logo-campus-virtual.png" alt="Logo de Blackwell University">
-            <h3>Formulario 4: Enrollment Agreement</h3>
-            <p>Haga clic en el botón para abrir este formulario.</p>
-            <button onclick="window.open('https://signnow.com/s/tlTS4WIy', '_blank')" class="btn-open-form">
-                Abrir Formulario
-            </button>
+        <!-- Formulario 4: Language Proficiency Acceptance Letter -->
+        <div class="form-item" data-name="Language Proficiency Acceptance Letter">
+            <div>
+                <h3>Formulario 4: Language Proficiency Acceptance Letter</h3>
+                <p>Haga clic en "Ir" para abrir este formulario.</p>
+            </div>
+            <button class="btn-ir" onclick="window.open('https://signnow.com/s/qyJc4uY9', '_blank')">Ir</button>
         </div>
 
-        <!-- Formulario 5: Admission BGU with Grant Spain -->
-        <div class="form-card" data-name="Admission BGU with Grant Spain">
-            <img src="https://campus.blackwell.university/pluginfile.php/1/theme_alpha/customlogindmlogo/1731598420/logo-campus-virtual.png" alt="Logo de Blackwell University">
-            <h3>Formulario 5: Admission BGU with Grant Spain</h3>
-            <p>Haga clic en el botón para abrir este formulario.</p>
-            <button onclick="window.open('https://signnow.com/s/Bt8SfpFA', '_blank')" class="btn-open-form">
-                Abrir Formulario
-            </button>
+        <!-- Formulario 5: Enrollment Agreement -->
+        <div class="form-item" data-name="Enrollment Agreement">
+            <div>
+                <h3>Formulario 5: Enrollment Agreement</h3>
+                <p>Haga clic en "Ir" para abrir este formulario.</p>
+            </div>
+            <button class="btn-ir" onclick="window.open('https://signnow.com/s/i1ktLhxJ', '_blank')">Ir</button>
         </div>
     </div>
 
@@ -170,12 +168,12 @@
         // Función para filtrar los formularios según el título
         function filterForms() {
             const searchInput = document.getElementById('searchInput').value.toLowerCase(); // Texto de búsqueda en minúsculas
-            const forms = document.querySelectorAll('.form-card'); // Todos los formularios
+            const forms = document.querySelectorAll('.form-item'); // Todos los formularios
 
             forms.forEach(form => {
                 const formTitle = form.querySelector('h3').textContent.toLowerCase(); // Título del formulario en minúsculas
                 if (formTitle.includes(searchInput)) {
-                    form.style.display = 'block'; // Mostrar si coincide
+                    form.style.display = 'flex'; // Mostrar si coincide
                 } else {
                     form.style.display = 'none'; // Ocultar si no coincide
                 }
